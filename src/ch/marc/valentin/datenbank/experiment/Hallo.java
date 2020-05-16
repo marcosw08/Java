@@ -8,7 +8,10 @@ public class Hallo {
 
 	public static void main(String[] args) throws IOException {
 		String name = liesVonDerKonsole("Wie heisst du? ");
+		String alter = liesVonDerKonsole ("Wie alt bist du? ");
 		System.out.println("Hallo, " + name.toUpperCase() + ", du Held!");
+		System.out.println("Du bist " + alter + " Jahre alt!");
+		
 	}
 	
 	private static String liesVonDerKonsole(String meldung) throws IOException {
