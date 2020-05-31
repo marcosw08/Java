@@ -7,7 +7,7 @@ public class Gaestebuch {
 		System.out.println("A - Einträge anzeigen");
 		System.out.println("B - Eintrag hinzufügen");
 		System.out.println("C - Eintrag löschen");
-		System.out.println("Beenden");
+		System.out.println("D - Beenden");
 
 	}
 
