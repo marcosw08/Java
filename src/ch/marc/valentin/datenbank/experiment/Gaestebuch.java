@@ -21,7 +21,9 @@ public class Gaestebuch {
 			}
 			if(auswahl.equals("B")) {
 				System.out.println("Eintrag hinzufügen");
-				
+				String name=liesVonDerKonsole("Name eingeben: ");
+				String text=liesVonDerKonsole("Text eingeben: ");
+				eintragHinzufuegen(name, text);
 			}
 			if(auswahl.equals("C")) {
 				System.out.println("Eintrag löschen");
@@ -38,6 +40,11 @@ public class Gaestebuch {
 		System.out.print(meldung);
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		return bufferedReader.readLine();
+	}
+	private static void eintragHinzufuegen(String name, String text) {
+		System.out.println("Ihr Name ist: "+name);
+		System.out.println("Ihr Text ist: "+text);
+		
 	}
 
 }
