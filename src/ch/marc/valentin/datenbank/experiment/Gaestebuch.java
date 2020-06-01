@@ -57,9 +57,8 @@ public class Gaestebuch {
 	private static void eintraegeAnzeigen (Connection db) throws SQLException {
 		Statement s = db.createStatement();
 		ResultSet r = s.executeQuery("select * from gaestebuch");
-		while (!r.isLast()) {
-			System.out.println(r.getString("NAME"));
-			r.next();
+		while (r.next()) {
+			System.out.println(r.getString("NAME") + " : " + r.getString("TEXT"));
 		}
 		s.close();
 	}
