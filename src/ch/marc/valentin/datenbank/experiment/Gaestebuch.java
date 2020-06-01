@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Gaestebuch {
 
@@ -21,6 +23,7 @@ public class Gaestebuch {
 			auswahl =liesVonDerKonsole("Buchstabe eintippen: ");
 			if(auswahl.equals("A")) {
 				System.out.println("Einträge anzeigen");
+				eintraegeAnzeigen(db);
 				
 			}
 			if(auswahl.equals("B")) {
@@ -51,5 +54,14 @@ public class Gaestebuch {
 		System.out.println("Ihr Text ist: "+text);
 		
 	}
-
+	private static void eintraegeAnzeigen (Connection db) throws SQLException {
+		Statement s = db.createStatement();
+		ResultSet r = s.executeQuery("select * from gaestebuch");
+		while (!r.isLast()) {
+			System.out.println(r.getString("NAME"));
+			r.next();
+		}
+		s.close();
+	}
 }
+
