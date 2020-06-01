@@ -3,10 +3,14 @@ package ch.marc.valentin.datenbank.experiment;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Gaestebuch {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, SQLException {
+		Connection db=DriverManager.getConnection("jdbc:h2:./daten/gaestebuch", "sa", "sa");
 		String auswahl;
 		do {
 			System.out.println("Hallo, was wollen Sie tun?");
@@ -30,6 +34,7 @@ public class Gaestebuch {
 				
 			}
 		} while(!auswahl.equals("D"));
+		db.close();
 	}
 	private static String liesVonDerKonsole(String meldung) throws IOException {
 		// Geht leider nur im Terminal, nicht in Eclipse:
